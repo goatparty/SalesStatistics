@@ -10,6 +10,9 @@ public class SalesStatistics {
     enum divisions {DIVISION_1,DIVISION_2,DIVISION_3,DIVISION_4,DIVISION_5,DIVISION_6,ALL_DIVISIONS}
     enum quarters  {QUARTER_1,QUARTER_2,QUARTER_3,QUARTER_4}
 
+    /**
+     * Constructor that assigns all values of sale to 0
+     */
     public SalesStatistics() {
         for(int x = 0; x < 4; x++) {
             for(int y = 0; y < 6; y++) {
@@ -18,6 +21,13 @@ public class SalesStatistics {
         }
     }
 
+    /**
+     * Constructor that accepts multiple arrays to copy to main sales array
+     * @param args1 Division 1 Array
+     * @param args2 Division 2 Array
+     * @param args3 Division 3 Array
+     * @param args4 Division 4 Array
+     */
     public SalesStatistics(double[] args1, double[] args2, double[] args3, double[] args4) {
         for(int x = 0; x < 4; x++) {
             if(x == 0) {
@@ -35,6 +45,12 @@ public class SalesStatistics {
         }
     }
 
+    /**
+     *
+     * @param quarter
+     * @param division
+     * @return
+     */
     public double getChange(quarters quarter, divisions division) {
         int numQuarter = getQuarterNum(quarter), numDivision = getDivisionNum(division);
 
@@ -57,7 +73,6 @@ public class SalesStatistics {
     }
 
     private int getDivisionNum(divisions division) {
-        boolean isAllDivisions = false;
         int numDivision = 0;
         switch (division) {
             case DIVISION_1:
